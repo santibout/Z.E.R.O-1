@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Z.E.R.O_1.web")]
+[assembly: AssemblyTitle("web")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Z.E.R.O_1.web")]
+[assembly: AssemblyProduct("web")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8ca1dd68-3d07-46ed-8431-a1cfb35b6c73")]
+[assembly: Guid("142ee914-46de-4c15-a947-a4c8ca682a62")]
 
 // Version information for an assembly consists of the following four values:
 //

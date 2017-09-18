@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Z.E.R.O_1.web
+namespace web
 {
     public class RouteConfig
     {

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(Z.E.R.O_1.web.Startup))]
-
-namespace Z.E.R.O_1.web
+[assembly: OwinStartupAttribute(typeof(web.Startup))]
+namespace web
 {
     public partial class Startup
     {
