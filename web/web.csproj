@@ -297,6 +297,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\models\models.csproj">
+      <Project>{65eebb1c-3eb9-4dd9-b4a7-4b5b1dd0117c}</Project>
+      <Name>models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\services\services.csproj">
       <Project>{e367a71b-02c0-4d60-8921-81d8aeaef7b2}</Project>
       <Name>services</Name>
