@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Z.E.R.O_1.web.Controllers
 {
-    [RoutePrefix("People")]
+    [RoutePrefix("people")]
     public class PeopleController : Controller
     {
         [Route]
@@ -18,7 +18,7 @@ namespace Z.E.R.O_1.web.Controllers
         [Route("{id:int}/edit")]
         public ActionResult Manage(int id = 0)
         {
-            ItemViewModel<int> model = new ItemViewModel<int>();
+            ItemResponse<int> model = new ItemResponse<int>();
             model.Item = id;
             return View(model);
         }

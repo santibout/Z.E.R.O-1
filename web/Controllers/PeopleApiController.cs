@@ -9,39 +9,97 @@ using System.Web.Http;
 
 namespace Z.E.R.O_1.web.Controllers
 {
-    [RoutePrefix("api/person")]
+    [RoutePrefix("api")]
+    
     public class PeopleApiController : ApiController
     {
-        private PeopleService _PeopleService;
+        PeopleService personService = new PeopleService();
         // GET api/<controller>
-      [HttpGet]
-      [Route]
-      public HttpResponseMessage GetAll()
+        [Route("person"), HttpGet]
+        public HttpResponseMessage GetAll()
         {
-            ItemViewModel<People> response = new ItemViewModel<People>();
-            response.Item = _PeopleService.SelectAll();
-            return Request.CreateResponse(HttpStatusCode.OK, response);
+            try
+            {
+                ItemViewModel2<People> response = new ItemViewModel2<People>();
+                response.Items = personService.SelectAll();
+                return Request.CreateResponse(HttpStatusCode.OK, response);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        [Route("person/{id:int}"), HttpGet]
+        public HttpResponseMessage GetById(int id)
         {
-            return "value";
+            try
+            {
+                ItemResponse<People> response = new ItemResponse<People>();
+                response.Item = personService.SelectById(id);
+
+                return Request.CreateResponse(HttpStatusCode.OK, response);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        [Route("person/manage"), HttpPost]
+        public HttpResponseMessage Insert(PeopleAddRequest model)
         {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                ItemResponse<int> response = new ItemResponse<int>();
+                response.Item = personService.Insert(model);
+
+                return Request.CreateResponse(HttpStatusCode.OK, response);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        [Route("person/{id:int}"), HttpPut]
+        public HttpResponseMessage Update(PeopleUpdateRequest model)
         {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                personService.Update(model);
+                return Request.CreateResponse(HttpStatusCode.OK, new SuccessResponse());
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id)
+        [Route("person/{id:int}")]
+        public HttpResponseMessage Delete(int id)
         {
+            try
+            {
+                personService.Delete(id);
+                return Request.CreateResponse(HttpStatusCode.OK, new SuccessResponse());
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
     }
 }
