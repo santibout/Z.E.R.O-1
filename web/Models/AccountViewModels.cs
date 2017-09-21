@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace web.Models
+namespace Z.E.R.O_1.web.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace web
+namespace Z.E.R.O_1.web
 {
     public static class WebApiConfig
     {

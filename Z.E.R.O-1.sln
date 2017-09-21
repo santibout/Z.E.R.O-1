@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web", "web\web.csproj", "{DD22E778-71BC-413F-9056-E9151B04DAAD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "services", "services\services.csproj", "{E367A71B-02C0-4D60-8921-81D8AEAEF7B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "models", "models\models.csproj", "{65EEBB1C-3EB9-4DD9-B4A7-4B5B1DD0117C}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "database", "Z.E.R.O-1.database\Z.E.R.O-1.database.sqlproj", "{266D2754-9522-44D6-AB0C-EB213D59FF34}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Z.E.R.O-1.database", "Z.E.R.O-1.database\Z.E.R.O-1.database.sqlproj", "{266D2754-9522-44D6-AB0C-EB213D59FF34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z.E.R.O-1.Tests", "Tests\Z.E.R.O-1.Tests.csproj", "{805D59E5-784A-4EED-A6C6-877DEDD4D7C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z.E.R.O-1.web", "web\Z.E.R.O-1.web.csproj", "{D7FB1DA1-7385-4F3F-81D5-25B36F066CD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DD22E778-71BC-413F-9056-E9151B04DAAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD22E778-71BC-413F-9056-E9151B04DAAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD22E778-71BC-413F-9056-E9151B04DAAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD22E778-71BC-413F-9056-E9151B04DAAD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E367A71B-02C0-4D60-8921-81D8AEAEF7B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E367A71B-02C0-4D60-8921-81D8AEAEF7B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E367A71B-02C0-4D60-8921-81D8AEAEF7B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,6 +33,14 @@ Global
 		{266D2754-9522-44D6-AB0C-EB213D59FF34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{266D2754-9522-44D6-AB0C-EB213D59FF34}.Release|Any CPU.Build.0 = Release|Any CPU
 		{266D2754-9522-44D6-AB0C-EB213D59FF34}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{805D59E5-784A-4EED-A6C6-877DEDD4D7C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{805D59E5-784A-4EED-A6C6-877DEDD4D7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{805D59E5-784A-4EED-A6C6-877DEDD4D7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{805D59E5-784A-4EED-A6C6-877DEDD4D7C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7FB1DA1-7385-4F3F-81D5-25B36F066CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7FB1DA1-7385-4F3F-81D5-25B36F066CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7FB1DA1-7385-4F3F-81D5-25B36F066CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7FB1DA1-7385-4F3F-81D5-25B36F066CD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

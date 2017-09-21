@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using web.Models;
+using Z.E.R.O_1.web.Models;
 
-namespace web
+namespace Z.E.R.O_1.web
 {
     public partial class Startup
     {

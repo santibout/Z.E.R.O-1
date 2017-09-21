@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using web.Models;
+using Z.E.R.O_1.web.Models;
 
-namespace web.Controllers
+namespace Z.E.R.O_1.web.Controllers
 {
     [Authorize]
     public class AccountController : Controller

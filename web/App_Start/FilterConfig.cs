@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace web
+namespace Z.E.R.O_1.web
 {
     public class FilterConfig
     {
