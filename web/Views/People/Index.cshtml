@@ -51,7 +51,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="items in PCtrl.otherUserProfiles">
-                    @*<tr dir-paginate="items in PCtrl.otherUserProfiles|orderBy:sortType:sortReverse|filter:search|itemsPerPage:display" ng-cloak>*@
+                        @*<tr dir-paginate="items in PCtrl.otherUserProfiles|orderBy:sortType:sortReverse|filter:search|itemsPerPage:display" ng-cloak>*@
                         <td class="hidden"><strong>{{items.Id}}</strong></td>
                         <td>{{items.FirstName}}</td>
                         <td>{{items.MiddleInitial}}</td>
@@ -61,17 +61,97 @@
                         <td class="hidden">{{items.ModifiedDate}}</td>
                         <td class="hidden">{{items.ModifiedBy}}</td>
                         <td>
-                                <a href="" class="label label-warning"">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                </a>
-                                <a href="" class="label label-danger hidden">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                </a>
-                            </td>
+                            <a href="" class="label label-warning" ng-click="PCtrl.editBtn(items.Id)">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
+                            <a href="" class="label label-danger hidden">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+    </div>
+    
+    <div id="modal" class="hidden">
+        <form name="EditForm">
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label hidden" for="Id">Id</label>
+                    <input ng-model="PCtrl.storeUser.Id"
+                           id="Id"
+                           name="Id"
+                           type="text"
+                           class="form-control input-md"
+                           required />
+                    @*<p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">valid settings of form </p>*@
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="FirstName">First Name</label>
+                    <input ng-model="PCtrl.storeUser.FirstName"
+                           id="firstName"
+                           name="firstName"
+                           type="text"
+                           class="form-control input-md"
+                           required />
+                    @*<p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">valid settings of form </p>*@
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="middleInitial">Middle Initial</label>
+                    <input ng-model="PCtrl.storeUser.MiddleInitial"
+                           id="middleInitial"
+                           name="middleInitial"
+                           type="text"
+                           class="form-control input-md"
+                           required />
+                    @*<p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>*@
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="lastName">Last Name</label>
+                    <input ng-model="PCtrl.storeUser.LastName"
+                           id="lastName"
+                           name="lastName"
+                           type="text"
+                           class="form-control input-md"
+                           required />
+
+                    @*<p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>
+                </div>*@
+                <div class="form-group">
+                    <label class="control-label" for="DateOfBirth">Date Of Birth</label>
+                    <input ng-model="PCtrl.storeUser.DateOfBirth"
+                           id="DateOfBirth"
+                           name="DateOfBirth"
+                           type="text"
+                           class="form-control input-md"
+                           required />
+
+                    @*<p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>*@
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="modifiedBy">Modified By</label>
+                    <input ng-model="PCtrl.storeUser.ModifiedBy"
+                           id="ModifiedBy"
+                           name="ModifiedBy"
+                           type="text"
+                           class="form-control input-md"
+                           required />
+
+                    @*<p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>*@
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-sm" ng-click="manageCtrl.submitBtn(configForm.$valid)"
+                            type="submit"
+                            @*ng-disabled="configForm.$invalid"*@
+                            name=".postConfigSettings">
+                        Submit
+                    </button>
+                    @*<p>{{manageCtrl.storeConfig}}</p>*@
+                </div>
+
+            </fieldset>
+        </form>
     </div>
 
 
