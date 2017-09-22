@@ -2,6 +2,87 @@
 @{
     ViewBag.Title = "Index";
 }
+<html ng-app="mainApp">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
-<h2>Index</h2>
+</head>
+<body ng-controller="PeopleController as PCtrl">
+
+    <h2>{{PCtrl.myUserProple}}</h2>
+
+    <div class="col-md-6">
+        <div style="overflow-x:auto;">
+            <table class="table_legenda table table-hover table-condensed table-responsive">
+                <thead>
+                    <tr>
+                        <th>
+                            <a href="#" ng-click="sortType = 'FirstName'; sortReverse = !sortReverse" style="text-decoration:none; color:inherit;">
+                                <i class="fa fa-cog" aria-hidden="true"></i> First Name
+                                <span ng-show="sortType == 'FirstName' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'FirstName' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'MiddleInitial'; sortReverse = !sortReverse" style="text-decoration:none; color:inherit;">
+                                <i class="fa fa-cogs" aria-hidden="true"></i> Middle Initial
+                                <span ng-show="sortType == 'MiddleInitial' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'MiddleInitial' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'LastName'; sortReverse = !sortReverse" style="text-decoration:none; color:inherit;">
+                                <i class="fa fa-info" aria-hidden="true"></i> Last Name
+                                <span ng-show="sortType == 'LastName' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'LastName' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'DateOfBirth'; sortReverse = !sortReverse" style="text-decoration:none; color:inherit;">
+                                <i class="fa fa-superpowers" aria-hidden="true"></i> Date Of Birth
+                                <span ng-show="sortType == 'DateOfBirth' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'DateOfBirth' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th><i class="fa fa-edit" aria-hidden="true"></i> Edit</th>
+                        <th class="hidden"><i class="fa fa-trash" aria-hidden="true"></i> Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="items in PCtrl.otherUserProfiles">
+                    @*<tr dir-paginate="items in PCtrl.otherUserProfiles|orderBy:sortType:sortReverse|filter:search|itemsPerPage:display" ng-cloak>*@
+                        <td class="hidden"><strong>{{items.Id}}</strong></td>
+                        <td>{{items.FirstName}}</td>
+                        <td>{{items.MiddleInitial}}</td>
+                        <td>{{items.LastName}}</td>
+                        <td>{{items.DateOfBirth}}</td>
+                        <td class="hidden">{{items.CreatedDate}}</td>
+                        <td class="hidden">{{items.ModifiedDate}}</td>
+                        <td class="hidden">{{items.ModifiedBy}}</td>
+                        <td>
+                                <a href="" class="label label-warning"">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </a>
+                                <a href="" class="label label-danger hidden">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/AngularJs/mainApp.js"></script>
+    <script src="~/Scripts/AngularJs/genericService.js"></script>
+    <script src="~/Scripts/PeopleService/PeopleIndex.js"></script>
+</body>
+</html>
+
 
