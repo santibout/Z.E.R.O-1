@@ -15,6 +15,8 @@
         vm.storeUser = [];
         vm.submitBtn = _submitBtn;
         vm.create = _create;
+        vm.submitBtn2 = _submit2;
+        vm.storeUser1;
 
 
         function _init() {
@@ -37,7 +39,7 @@
         }
         function _getUserByIdSuccess(r) {
             vm.storeUser = r.data.Item;
-            console.log('vm.storeUser',vm.storeUser);
+            console.log('vm.storeUser', vm.storeUser);
         }
         function _getUserByIdError(r) {
             console.log(r, ":(");
@@ -49,6 +51,9 @@
         }
         function _updateSuccess() {
             console.log('Update Success');
+            vm.genericService.get('/api/person')
+                .then(_getComplete);
+            $("#modal").addClass('hidden');
         }
         function _updateError() {
             console.log(vm.storeUser);
@@ -56,6 +61,21 @@
         }
         function _create() {
             console.log('Create Btn Clicked');
+            $("#modal1").modal('show');
+        }
+        function _submit2() {
+            console.log('SubmitBtn2 Clicked');
+            vm.genericService.post('/api/person/manage', vm.storeUser1)
+                .then(_postSuccess, _postError);
+        }
+        function _postSuccess() {
+            console.log('success');
+            vm.genericService.get('/api/person')
+                .then(_getComplete);
+            $("#modal1").modal('hide');
+        }
+        function _postError() {
+            console.log(vm.storeUser1);
         }
     }
 })();
