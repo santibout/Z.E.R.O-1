@@ -17,6 +17,8 @@
         vm.create = _create;
         vm.submitBtn2 = _submit2;
         vm.storeUser1;
+        vm.deleteBtn = _deleteBtn;
+        vm.currentIndex;
 
 
         function _init() {
@@ -76,6 +78,20 @@
         }
         function _postError() {
             console.log(vm.storeUser1);
+        }
+        function _deleteBtn(Id, currentIndex) {
+            console.log('DeleteBtn Clicked', Id);
+             vm.currentIndex = currentIndex;
+            return vm.genericService.delete('/api/person/', Id)
+                .then(_deleteSuccess, _deleteError);
+        }
+        function _deleteSuccess(r) {
+            console.log(r);
+            vm.otherUserProfiles.splice(vm.currentIndex, 1);
+            return;
+        }
+        function _deleteError(r) {
+            console.log(r, ":(");
         }
     }
 })();

@@ -45,8 +45,7 @@
                                 <span ng-show="sortType == 'DateOfBirth' && sortReverse" class="fa fa-caret-up"></span>
                             </a>
                         </th>
-                        <th><i class="fa fa-edit" aria-hidden="true"></i> Edit</th>
-                        <th class="hidden"><i class="fa fa-trash" aria-hidden="true"></i> Delete</th>
+                        <th><i class="fa fa-edit" aria-hidden="true"></i> Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,7 +63,7 @@
                             <a href="" class="label label-warning" ng-click="PCtrl.editBtn(items.Id)">
                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                             </a>
-                            <a href="" class="label label-danger hidden">
+                            <a href="" class="label label-danger" ng-click="PCtrl.deleteBtn(items.Id, $index)">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
                         </td>
