@@ -73,6 +73,88 @@
             </table>
         </div>
     </div>
+
+    <button type="button" ng-click="PCtrl.create()">Create New User</button>
+
+    <div id="modal1" class="modal">
+        <form name="EditForm">
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label hidden" for="Id">Id</label>
+                    <input ng-model="PCtrl.storeUser.Id"
+                           id="Id"
+                           name="Id"
+                           type="text"
+                           class="form-control input-md"
+                           required />
+                    <p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">valid settings of form </p>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="FirstName">First Name</label>
+                    <input ng-model="PCtrl.storeUser.FirstName"
+                           id="firstName"
+                           name="firstName"
+                           type="text"
+                           class="form-control input-md"
+                           required />
+                    <p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">valid settings of form </p>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="middleInitial">Middle Initial</label>
+                    <input ng-model="PCtrl.storeUser.MiddleInitial"
+                           id="middleInitial"
+                           name="middleInitial"
+                           type="text"
+                           class="form-control input-md"
+                           required />
+                    <p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="lastName">Last Name</label>
+                    <input ng-model="PCtrl.storeUser.LastName"
+                           id="lastName"
+                           name="lastName"
+                           type="text"
+                           class="form-control input-md"
+                           required />
+
+                    <p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="DateOfBirth">Date Of Birth</label>
+                    <input ng-model="PCtrl.storeUser.DateOfBirth"
+                           id="DateOfBirth"
+                           name="DateOfBirth"
+                           type="text"
+                           class="form-control input-md"
+                           required />
+
+                    <p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="modifiedBy">Modified By</label>
+                    <input ng-model="PCtrl.storeUser.ModifiedBy"
+                           id="ModifiedBy"
+                           name="ModifiedBy"
+                           type="text"
+                           class="form-control input-md"
+                           required />
+
+                    <p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-sm" ng-click="PCtrl.submitBtn(PCtrl.storeUser)"
+                            type="submit"
+                            ng-disabled="configForm.$invalid"
+                            name=".postConfigSettings">
+                        Submit
+                    </button>
+                    <p>{{PCtrl.storeUser}}</p>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
     
     <div id="modal" class="hidden">
         <form name="EditForm">
@@ -85,7 +167,7 @@
                            type="text"
                            class="form-control input-md"
                            required />
-                    @*<p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">valid settings of form </p>*@
+                    <p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">valid settings of form </p>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="FirstName">First Name</label>
@@ -95,7 +177,7 @@
                            type="text"
                            class="form-control input-md"
                            required />
-                    @*<p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">valid settings of form </p>*@
+                    <p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">valid settings of form </p>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="middleInitial">Middle Initial</label>
@@ -105,7 +187,7 @@
                            type="text"
                            class="form-control input-md"
                            required />
-                    @*<p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>*@
+                    <p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="lastName">Last Name</label>
@@ -116,8 +198,8 @@
                            class="form-control input-md"
                            required />
 
-                    @*<p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>
-                </div>*@
+                    <p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>
+                </div>
                 <div class="form-group">
                     <label class="control-label" for="DateOfBirth">Date Of Birth</label>
                     <input ng-model="PCtrl.storeUser.DateOfBirth"
@@ -127,7 +209,7 @@
                            class="form-control input-md"
                            required />
 
-                    @*<p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>*@
+                    <p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="modifiedBy">Modified By</label>
@@ -138,16 +220,16 @@
                            class="form-control input-md"
                            required />
 
-                    @*<p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>*@
+                    <p ng-show="configForm.settings.$invalid && !configForm.settings.$pristine">a name is reqired</p>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-sm" ng-click="manageCtrl.submitBtn(configForm.$valid)"
+                    <button class="btn btn-primary btn-sm" ng-click="PCtrl.submitBtn(PCtrl.storeUser)"
                             type="submit"
-                            @*ng-disabled="configForm.$invalid"*@
+                            ng-disabled="configForm.$invalid"
                             name=".postConfigSettings">
                         Submit
                     </button>
-                    @*<p>{{manageCtrl.storeConfig}}</p>*@
+                    <p>{{PCtrl.storeUser}}</p>
                 </div>
 
             </fieldset>

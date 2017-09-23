@@ -13,6 +13,8 @@
         vm.otherUserProfiles = [];
         vm.editBtn = _editButton;
         vm.storeUser = [];
+        vm.submitBtn = _submitBtn;
+        vm.create = _create;
 
 
         function _init() {
@@ -35,11 +37,25 @@
         }
         function _getUserByIdSuccess(r) {
             vm.storeUser = r.data.Item;
-            console.log(vm.storeUser);
+            console.log('vm.storeUser',vm.storeUser);
         }
         function _getUserByIdError(r) {
             console.log(r, ":(");
         }
-
+        function _submitBtn() {
+            console.log('vm.storeUser.Id: ', vm.storeUser.Id);
+            vm.genericService.put('/api/person/', vm.storeUser.Id, vm.storeUser)
+                .then(_updateSuccess, _updateError);
+        }
+        function _updateSuccess() {
+            console.log('Update Success');
+        }
+        function _updateError() {
+            console.log(vm.storeUser);
+            console.log('Update Error');
+        }
+        function _create() {
+            console.log('Create Btn Clicked');
+        }
     }
 })();

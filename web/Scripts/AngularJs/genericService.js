@@ -15,10 +15,7 @@
             getById: _getById,
             put: _put,
             delete: _delete,
-            truncate: _truncate,
-            errorParse: _errorParse,
-            postError: _postError,
-            logOutUser: _logOutUser
+            truncate: _truncate
         };
 
         // POST
@@ -34,7 +31,6 @@
 
             function _postFailed(err) {
                 console.log("Post Failed", err);
-                _errorParse(err);
                 return $q.reject(err);
             }
         }
@@ -52,7 +48,6 @@
 
             function _postByIdFailed(err) {
                 console.log("Post by id failed", err);
-                _errorParse(err);
                 return $q.reject(err);
             }
         }
@@ -70,7 +65,6 @@
 
             function _getFailed(err) {
                 console.log("Get Failed", err);
-                _errorParse(err);
                 return $q.reject(err);
             }
         }
@@ -88,7 +82,6 @@
 
             function _getByIdFailed(err) {
                 console.log("Get by id failed", err);
-                _errorParse(err);
                 return $q.reject(err);
             }
         }
@@ -106,7 +99,6 @@
 
             function _putFailed(err) {
                 console.log("Put Failed", err);
-                _errorParse(err);
                 return $q.reject(err);
             }
         }
@@ -124,7 +116,6 @@
 
             function _deleteFailed(err) {
                 console.log("Delete Failed", err);
-                _errorParse(err);
                 return $q.reject(err);
             }
         }
@@ -142,82 +133,8 @@
 
             function _truncateFailed(err) {
                 console.log("Truncate Failed", err);
-                _errorParse(err);
                 return $q.reject(err);
             }
-        }
-
-        // Called when error is thrown
-        function _errorParse(data) {
-            var modifiedBy = "Admin";
-            _get("/api/auth/current")
-                .then(_currentUser);
-
-            function _currentUser(res) {
-                if (res.data === null) {
-                    _noUser();
-                } else {
-                    var modifiedBy = res.data.name;
-
-                    var newData = {
-                        "errorMessage": data.data.message,
-                        "errorNumber": data.status,
-                        "modifiedBy": modifiedBy,
-                        "errorSeverity": 0,
-                        "errorState": 0,
-                        "errorProcedure": data.config.method,
-                        "errorLine": 0
-                    };
-                    _postError(newData);
-                }
-            }
-
-            function _noUser() {
-                var newData = {
-                    "errorMessage": data.data.message,
-                    "errorNumber": data.status,
-                    "modifiedBy": "Admin",
-                    "errorSeverity": 0,
-                    "errorState": 0,
-                    "errorProcedure": data.config.method,
-                    "errorLine": 0
-                };
-                _postError(newData);
-            }
-            // Filter "errorSeverity" 
-            // Try to find way to log error line
-
-            // Move "Logout user"
-            // If error is critical send email
-
-        }
-
-        // Function to catch errors
-        function _postError(data) {
-            return $http.post("/api/errors/", data)
-                .then(_postErrorComplete)
-                .catch(_postErrorFailed);
-
-            function _postErrorComplete(res) {
-                console.log("Error successfully logged", res);
-            }
-
-            function _postErrorFailed(err) {
-                console.log("Error not logged", err);
-                return $q.reject(err);
-            }
-        }
-
-        //Logout
-        function _logOutUser() {
-            return $http.get("/api/auth/logout", { withCredentials: true })
-                .then(_logOutUserSuccess, _logOutUserError);
-        }
-        function _logOutUserSuccess(resp) {
-            return resp;
-        }
-        function _logOutUserError(err) {
-            return $q.reject(err);
         }
     }
 })();
