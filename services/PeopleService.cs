@@ -16,17 +16,6 @@ namespace services
 {
     public class PeopleService
     {
-        
-          
-
-
-
-
-
-
-
-
-
         public List<People> SelectAll()
         {
             List<People> peopleList = new List<People>();
