@@ -36,6 +36,7 @@
             // $window.location.href = '/people/manage/' + Id;
             console.log("Edit Btc Clicked");
             $("#modal").removeClass('hidden');
+            $("#editBtn").addClass('hidden');
             vm.genericService.getById('/api/person/', Id)
                 .then(_getUserByIdSuccess, _getUserByIdError);
         }
@@ -47,6 +48,7 @@
             console.log(r, ":(");
         }
         function _submitBtn() {
+            $("#editBtn").removeClass('hidden');
             console.log('vm.storeUser.Id: ', vm.storeUser.Id);
             vm.genericService.put('/api/person/', vm.storeUser.Id, vm.storeUser)
                 .then(_updateSuccess, _updateError);

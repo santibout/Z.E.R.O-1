@@ -9,6 +9,18 @@
 
 </head>
 <body ng-controller="PeopleController as PCtrl">
+    <style>
+        .modal {
+            width: 300px;
+            height: 500px;
+            margin: 0 auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 40%;
+            border: 1px solid;
+        }
+    </style>
 
     <h2>{{PCtrl.myUserProple}}</h2>
 
@@ -73,7 +85,7 @@
         </div>
     </div>
 
-    <button type="button" ng-click="PCtrl.create()">Create New User</button>
+    <button type="button" id="editBtn" ng-click="PCtrl.create()">Create New User</button>
 
     <div id="modal1" class="modal">
         <form name="EditForm">
@@ -112,10 +124,9 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="DateOfBirth">Date Of Birth</label>
-                    <input ng-model="PCtrl.storeUser1.DateOfBirth"
+                    <input type="date" ng-model="PCtrl.storeUser1.DateOfBirth"
                            id="DateOfBirth"
                            name="DateOfBirth"
-                           type="text"
                            class="form-control input-md"
                            required />
 
@@ -195,7 +206,7 @@
                     <input ng-model="PCtrl.storeUser.DateOfBirth"
                            id="DateOfBirth"
                            name="DateOfBirth"
-                           type="text"
+                           type="date"
                            class="form-control input-md"
                            required />
 

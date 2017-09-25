@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z.E.R.O-1.Tests", "Tests\Z.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z.E.R.O-1.web", "web\Z.E.R.O-1.web.csproj", "{D7FB1DA1-7385-4F3F-81D5-25B36F066CD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebScrapper1", "WebScrapper1\WebScrapper1.csproj", "{E213F5A9-2EFC-4355-A3EE-1034299D11D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{0BDFAF87-6F76-49AA-8493-C6E25FA523E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{D7FB1DA1-7385-4F3F-81D5-25B36F066CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7FB1DA1-7385-4F3F-81D5-25B36F066CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7FB1DA1-7385-4F3F-81D5-25B36F066CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E213F5A9-2EFC-4355-A3EE-1034299D11D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E213F5A9-2EFC-4355-A3EE-1034299D11D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E213F5A9-2EFC-4355-A3EE-1034299D11D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E213F5A9-2EFC-4355-A3EE-1034299D11D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BDFAF87-6F76-49AA-8493-C6E25FA523E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BDFAF87-6F76-49AA-8493-C6E25FA523E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BDFAF87-6F76-49AA-8493-C6E25FA523E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BDFAF87-6F76-49AA-8493-C6E25FA523E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

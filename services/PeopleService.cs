@@ -1,4 +1,5 @@
-﻿using models.Domain;
+﻿using HtmlAgilityPack;
+using models.Domain;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -15,15 +16,9 @@ namespace services
 {
     public class PeopleService
     {
-        public static string getSourceCode(string url)
-        {
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-            StreamReader sr = new StreamReader(resp.GetResponseStream());
-            string sourceCode = sr.ReadToEnd();
-            resp.Close();
-            return sourceCode;
-        }
+        
+          
+
 
 
 
